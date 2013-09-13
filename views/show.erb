@@ -1,0 +1,29 @@
+<h2>This is Scott!</h2>
+
+<p><%= @scott.name %></p>
+<p><%= @scott.gender %></p>
+<p><%= @scott.type_of_scott %></p>
+
+<% unless @scott.eclectic_instruments.empty? %>
+	<h3>eclectic_instruments:</h3>
+		
+	<% @scott.eclectic_instruments.each do |ei| %>
+		<ul>	
+			<li>Name: <%= ei.name %></li>
+			<li>Genre: <%= ei.genre %></li>
+			<li>Playability_level: <%= ei.playability_level %></li>
+		</ul>	
+	<% end %>
+		
+<% end %>
+
+<% unless @scott.mad_skills.empty? %>
+	<h3>mad_skills:</h3>
+	<% @scott.mad_skills.each do |ms| %>
+		<ul>	
+			<li>Skill: <%= ms.skill %></li>
+			<li>Genre: <%= ms.genre %></li>
+			<li>Level: <%= ms.level %></li>
+		</ul>	
+	<% end %>
+<% end %>

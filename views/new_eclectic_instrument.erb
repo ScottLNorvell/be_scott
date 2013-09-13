@@ -1,0 +1,20 @@
+<form action="/scott/new_eclectic_instrument" method="post">
+	<div>
+		<label for="name">NAME:</label>
+		<input type="text" name="ei[name]">
+	</div>
+	<div>
+		<label for="genre">GENRE:</label>
+		<input type="text" name="ei[genre]">
+	</div>
+	<div>
+		<label for="level">LEVEL:</label>
+		<select name="ei[playability_level]" >
+			<% (1..10).each do |i| %>
+				<option value="<%= i %>"><%= i %></option>
+			<% end %>
+		</select>
+			
+	</div>
+	<input type="submit" value="acquire eclectic instrument">
+</form>

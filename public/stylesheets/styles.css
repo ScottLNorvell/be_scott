@@ -1,0 +1,98 @@
+/* General */
+
+body {
+	width: 1000px;
+	margin: 0px auto;
+	font-family: helvetica;
+}
+
+/* Header Contents */
+
+header {
+	position: relative;
+	text-align: center;
+	/*font-family: helvetica;*/
+	width: 100%;
+	height: 500px;
+	background-image: url("../images/me_bg.png");
+	background-size: cover;
+	background-position: center;
+	background: cover;
+	padding-bottom: 30px;
+	margin-bottom: 40px;
+}
+
+#header-content {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.buttons {
+	/*display: block;*/
+	list-style: none;
+	padding: 20px;
+	opacity: 1.0;
+	
+
+}
+
+.buttons li {
+	display: inline;
+	border: 2px solid black;
+	border-radius: 10%;
+	padding: 10px;
+	margin: 10px;
+	background-color: white;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+.buttons li:hover {
+	padding: 15px;
+
+}
+
+h1.title {
+	color: orange;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+	background-color: grey;
+	border-top: 3px solid white;
+}
+
+
+
+a {
+	color: black;
+	text-decoration: none;
+	font-family: sans-serif;
+}
+
+a:hover {
+	color: red;
+	text-decoration: none;
+}
+/* form stuff */
+
+/*form {
+	width: 500px;
+}
+
+form label {
+	float: left;
+}
+
+form input {
+	float: right;
+}*/
+
+/* clearfix */
+
+.clear {
+	clear: both;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+	<title>Become a Scott</title>
+	<link rel="stylesheet" href="/stylesheets/normalize.css">
+	<link rel="stylesheet" href="/stylesheets/styles.css">
+	
+</head>
+
+
+<body>
+	<header>
+		<div id="header-content">
+			<h1 class="title">Become a Scott</h1>
+			<div class="button-container">
+				<ul class="buttons">
+					<% @buttons.each do |button| %>
+						<a href="<%= button[:url] %>"><li><%= button[:text] %></li></a>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</header>
+		<%= yield %>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<form action="/scott/new_mad_skill" method="post">
+	<div>
+		<label for="skill">SKILL:</label>
+		<input type="text" name="skill[skill]">
+	</div>
+	<div>
+		<label for="genre">GENRE:</label>
+		<input type="text" name="skill[genre]">
+	</div>
+	<div>
+		<label for="level">LEVEL:</label>
+		<select name="skill[level]" id="">
+			<% (1..10).each do |i| %>
+				<option value="<%= i %>"><%= i %></option>
+			<% end %>
+		</select>
+			
+	</div>
+	<input type="submit" value="acquire mad skill">
+</form>
