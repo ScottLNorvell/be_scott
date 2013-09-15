@@ -4,8 +4,8 @@ CREATE TABLE scotts (
 	id serial primary key,
 	name varchar(50) DEFAULT 'Scott',
 	gender varchar(5),
-	type_of_scott varchar(50).
-	password varchar(64) not null,
+	type_of_scott varchar(50),
+	password varchar(64) NOT NULL
 	
 );
 
