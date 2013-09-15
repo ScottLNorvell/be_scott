@@ -1,15 +1,17 @@
-CREATE DATABASE sinatra_crud;
+CREATE DATABASE be_scott;
 
 CREATE TABLE scotts (
 	id serial primary key,
 	name varchar(50) DEFAULT 'Scott',
 	gender varchar(5),
-	type_of_scott varchar(50),
-	birthday date
+	type_of_scott varchar(50).
+	password varchar(64) not null,
+	
 );
 
 CREATE TABLE mad_skills (
 	id serial primary key,
+	skill varchar(50) NOT NULL,
 	genre varchar(50),
 	scott_id serial,
 	level smallint,
@@ -22,23 +24,22 @@ CREATE TABLE eclectic_instruments (
 	genre varchar(50),
 	name varchar(50),
 	playability_level smallint,
-	date_purchased date,
 	scott_id serial,
 	FOREIGN KEY (scott_id)
 	  REFERENCES scotts(id)
 );
 
-ALTER TABLE scotts
-ADD password varchar(64) not null;
+-- ALTER TABLE scotts
+-- ADD password varchar(64) not null;
 
-ALTER TABLE scotts
-DROP COLUMN birthday;
+-- ALTER TABLE scotts
+-- DROP COLUMN birthday;
 
-ALTER TABLE mad_skills
-ADD skill varchar(50) NOT NULL;
+-- ALTER TABLE mad_skills
+-- ADD skill varchar(50) NOT NULL;
 
-ALTER TABLE eclectic_instruments
-DROP COLUMN date_purchased;
+-- ALTER TABLE eclectic_instruments
+-- DROP COLUMN date_purchased;
 
 -- CREATE TABLE orchestra (
 -- 	id serial primary key,

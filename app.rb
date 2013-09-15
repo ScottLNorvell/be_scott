@@ -5,21 +5,26 @@ require "active_record"
 require 'digest/sha2'
 
 # include 'item' model
-require_relative './models/scott'
-require_relative './models/eclectic_instrument'
-require_relative './models/mad_skill'
+require './models/scott'
+require './models/eclectic_instrument'
+require './models/mad_skill'
 
 enable :sessions
 
+# configure ActiveRecord: connect to postgres
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/be_scott')
 
 # configure ActiveRecord: connect to postgres
-ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql",
-  :host => "localhost",
-  :username => "scottsMac", # Put your postgres username here
-  :password => "",
-  :database => "be_scott"
-)
+# ActiveRecord::Base.establish_connection(
+#   :adapter => "postgresql",
+#   :host => "localhost",
+#   :username => "scottsMac", # Put your postgres username here
+#   :password => "",
+#   :database => "be_scott"
+# )
+
+# output ActiveRecord sql to console
+ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 buttons = {
 	not_logged_in: [
@@ -32,14 +37,14 @@ buttons = {
 	]
 }
 
-# output ActiveRecord sql to console
-ActiveRecord::Base.logger = Logger.new(STDOUT)
+
 
 before do
 	if session[:scott]
 		@buttons = buttons[:logged_in]
 		@scott = session[:scott]
-	else 
+	else
+		@scott = nil 
 		@buttons = buttons[:not_logged_in]
 	end
 end
