@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <head>
 	<title>Become a Scott</title>
-	<link rel="stylesheet" href="/stylesheets/normalize.css">
-	<link rel="stylesheet" href="/stylesheets/styles.css">
+	<link rel="stylesheet" href="/stylesheets/base.css">
+	<link rel="stylesheet" href="/stylesheets/skeleton.css">
+	<link rel="stylesheet" href="/stylesheets/layout.css">
+	<!-- <link rel="stylesheet" href="/stylesheets/normalize.css"> -->
+	<!-- <link rel="stylesheet" href="/stylesheets/styles.css"> -->
 	
 </head>
 
 
 <body>
-	<header>
-		<div id="header-content">
-			<h1 class="title">Become a Scott</h1>
-			<div class="button-container">
-				<ul class="buttons">
-					<% @buttons.each do |button| %>
-						<a href="<%= button[:url] %>"><li><%= button[:text] %></li></a>
-					<% end %>
-				</ul>
+	<div class="container">
+		<header class="sixteen columns">
+			<div id="header-content">
+				<div class="row">
+					<h1 class="title sixteen columns alpha omega remove-bottom">Become a Scott</h1>
+				</div>
+				<div class="row">
+					<div class="offset-by-three thirteen columns alpha omega">
+						<div class="row remove-bottom">
+							<nav>
+
+							<% button = @buttons[0] %>
+								<div class="five columns alpha" >
+									<a href="<%= button[:url] %>" class="nav-link" ><%= button[:text] %></a>
+								</div>
+								
+							<% button = @buttons[1] %>
+								<div class="five columns omega" >
+									<a href="<%= button[:url] %>" class="nav-link"><%= button[:text] %></a>
+								</div>
+
+							</nav>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</header>
+		</header>
+		<br class="clear">
+
+		
+		
+		
 		<%= yield %>
+	</div>
 </body>
 </html>

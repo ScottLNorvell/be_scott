@@ -1,9 +1,9 @@
 <h2>This is Scott!</h2>
-
-<p><%= @scott.name %></p>
-<p><%= @scott.gender %></p>
-<p><%= @scott.type_of_scott %></p>
-
+<ul>
+<li>Name: <%= @scott.name %></li>
+<li>Gender: <%= @scott.gender == "M" ? "male" : "female" %></li>
+<li>Type of Scott: <%= @scott.type_of_scott %></li>
+</ul>
 <% unless @scott.eclectic_instruments.empty? %>
 	<h3>eclectic_instruments:</h3>
 		
