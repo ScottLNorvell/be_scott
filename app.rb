@@ -37,7 +37,11 @@ before "/scott*" do
 end
 
 get "/" do
-	erb :home 
+	if @scott
+		redirect "/scott"
+	else
+		erb :home 
+	end
 end
 
 # LOGIN pages

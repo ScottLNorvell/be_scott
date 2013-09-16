@@ -75,7 +75,7 @@ $CONFIG = {
 		"mastered", #7
 		"fully grokked", #8
 		"ninja-level mastered", #9
-		"become The Messiah at" #10
+		"become Jesus at" #10
 	]
 
 }
