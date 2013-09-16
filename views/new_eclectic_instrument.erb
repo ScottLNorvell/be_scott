@@ -1,3 +1,10 @@
+<div class="offset-by-three five columns">
+	<h2>what <span class="freal">eclectic instruments</span> do you own?</h2>
+	<h4>(as Scott...)</h4>
+</div>
+<div class="one columns">&nbsp;&nbsp;</div>
+<div class="five columns">
+
 <form action="/scott/new_eclectic_instrument" method="post">
 	<div>
 		<label for="name">NAME:</label>
@@ -5,10 +12,14 @@
 	</div>
 	<div>
 		<label for="genre">GENRE:</label>
-		<input type="text" name="ei[genre]">
+		<select name="ei[genre]" >
+			<% @instrument_genres.each do |instrument_genre| %>
+				<option value="<%= instrument_genre %>"><%= instrument_genre %></option>
+			<% end %>
+		</select>
 	</div>
 	<div>
-		<label for="level">LEVEL:</label>
+		<label for="level">PLAYABILITY LEVEL:</label>
 		<select name="ei[playability_level]" >
 			<% (1..10).each do |i| %>
 				<option value="<%= i %>"><%= i %></option>
@@ -18,3 +29,4 @@
 	</div>
 	<input type="submit" value="acquire eclectic instrument">
 </form>
+</div>

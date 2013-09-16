@@ -18,11 +18,6 @@
 ================================================== */
 
 /* header */
-/*@import url(http://fonts.googleapis.com/css?family=Peralta);*/
-
-/* border a class to see it! */
-
-/*.twelve, .four { border: 1px dotted black; }*/
 
 header {
 	position: relative;
@@ -31,14 +26,13 @@ header {
 	background-image: url("../images/me_bg.png");
 	background-size: cover;
 	background-position: center;
+	margin-bottom: 40px;
 }
 
 #header-content {
 	position: absolute;
 	bottom: 0;
 }
-
-
 
 nav .nav-link {
 	display: block;
@@ -59,7 +53,6 @@ nav .nav-link {
 nav .nav-link:hover {
 	padding-left: 15px;
 	padding-right: 15px;
-	/* change something else to make the buttons do stuff */
 
 }
 
@@ -67,17 +60,13 @@ h1.title {
 	color: orange;
 	letter-spacing: 8px;
 	text-transform: uppercase;
-	font-family: 'Peralta', cursive;
 	background-color: grey;
 	border-top: 3px solid white;
 }
 
-
-
 a {
 	color: black;
 	text-decoration: none;
-	/*font-family: sans-serif;*/
 }
 
 a:hover {
@@ -85,8 +74,26 @@ a:hover {
 	text-decoration: none;
 }
 
+.done-button {
+	margin: 0 auto;
+}
+
 /* #Page Styles
 ================================================== */
+
+.freal {
+	font-size: 46px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.description {
+	margin-left: 10px;
+}
+
+.description-title {
+	text-decoration: underline;
+}
 
 /* #Media Queries
 ================================================== */

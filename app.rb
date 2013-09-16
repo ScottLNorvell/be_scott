@@ -8,6 +8,7 @@ require 'digest/sha2'
 require './models/scott'
 require './models/eclectic_instrument'
 require './models/mad_skill'
+require "./config"
 
 enable :sessions
 
@@ -26,26 +27,30 @@ ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://local
 # output ActiveRecord sql to console
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-buttons = {
-	not_logged_in: [
-		{text: "become a Scott", url: "/signup"},
-		{text: "log in (as Scott)", url: "/login"}
-	],
-	logged_in: [
-		{text: "acquire a mad_skill", url: "/scott/new_mad_skill"},
-		{text: "acquire an eclectic_instrument", url: "/scott/new_eclectic_instrument"}
-	]
-}
-
-
+# buttons = {
+# 	not_logged_in: [
+# 		{text: "become a Scott", url: "/signup"},
+# 		{text: "log in (as Scott)", url: "/login"}
+# 	],
+# 	logged_in: [
+# 		{text: "acquire a mad skill", url: "/scott/new_mad_skill"},
+# 		{text: "acquire an eclectic instrument", url: "/scott/new_eclectic_instrument"}
+# 	]
+# }
 
 before do
 	if session[:scott]
-		@buttons = buttons[:logged_in]
+		@buttons = $CONFIG[:buttons][:logged_in]
 		@scott = session[:scott]
 	else
 		@scott = nil 
-		@buttons = buttons[:not_logged_in]
+		@buttons = $CONFIG[:buttons][:not_logged_in]
+	end
+end
+
+before "/scott*" do
+	unless session[:scott]
+		redirect "/signup"
 	end
 end
 
@@ -77,6 +82,8 @@ get "/logout" do
 end
 
 get "/signup" do
+	@types_of_scott = $CONFIG[:types_of_scott]
+	# $CONFIG.to_s
 	erb :signup
 end
 
@@ -98,13 +105,14 @@ post "/signup" do
 end
 
 get "/scott" do
-	# @scott = Scott.find(params[:scott_id])
+	@playability_words = $CONFIG[:playability_words]
+	@skill_words = $CONFIG[:skill_words]
 	erb :show
 end
 
 ## NEW mad skill
 get "/scott/new_mad_skill" do
-
+	@skill_genres = $CONFIG[:skill_genres]
 	erb :new_mad_skill
 end
 
@@ -116,7 +124,7 @@ end
 
 ## NEW eclectic instrument
 get "/scott/new_eclectic_instrument" do
-	
+	@instrument_genres = $CONFIG[:instrument_genres]
 	erb :new_eclectic_instrument
 end
 

@@ -1,29 +1,29 @@
-<h2>This is Scott!</h2>
-<ul>
-<li>Name: <%= @scott.name %></li>
-<li>Gender: <%= @scott.gender == "M" ? "male" : "female" %></li>
-<li>Type of Scott: <%= @scott.type_of_scott %></li>
-</ul>
+<div class="offset-by-three five columns">
+<h2>This is <span class="freal">Scott!</span></h2>
+<h4>(<%= @scott.gender == "M" ? "his" : "her" %> name is <%= @scott.name %>.)</h4>
+<h5>-<%= @scott.gender == "M" ? "He" : "She" %> is a <%= @scott.type_of_scott %>...</h5>
+</div>
+<div class="five columns">
 <% unless @scott.eclectic_instruments.empty? %>
-	<h3>eclectic_instruments:</h3>
-		
+	<h3>Eclectic Instruments:</h3>
+	<hr>
 	<% @scott.eclectic_instruments.each do |ei| %>
-		<ul>	
-			<li>Name: <%= ei.name %></li>
-			<li>Genre: <%= ei.genre %></li>
-			<li>Playability_level: <%= ei.playability_level %></li>
-		</ul>	
+		<h4 class="description-title"><%= ei.name.capitalize %></h4>
+	<div class="description">
+		<p>- This instrument is in the <%= ei.genre %> genre. <%= @scott.name %> is <%= @playability_words[ei.playability_level - 1] %> at playing the <%= ei.name %>.</p>
+	</div>
 	<% end %>
 		
 <% end %>
 
 <% unless @scott.mad_skills.empty? %>
-	<h3>mad_skills:</h3>
+	<h3>Mad Skills:</h3>
+	<hr>
 	<% @scott.mad_skills.each do |ms| %>
-		<ul>	
-			<li>Skill: <%= ms.skill %></li>
-			<li>Genre: <%= ms.genre %></li>
-			<li>Level: <%= ms.level %></li>
-		</ul>	
+		<h4 class="description-title"><%= ms.skill.capitalize %></h4>
+	<div class="description">
+		<p>- <%= @scott.name %> posesses this <%= ms.genre %> skill. <%= @scott.name %> has <%= @skill_words[ms.level - 1] %> <%= ms.skill %>.</p>
+	</div>	
 	<% end %>
 <% end %>
+</div>

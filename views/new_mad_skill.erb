@@ -1,3 +1,10 @@
+<div class="offset-by-four four columns">
+	<h2>what <span class="freal">mad skills</span> do you posess?</h2>
+	<h4>(as Scott...)</h4>
+</div>
+
+<div class="four columns">
+
 <form action="/scott/new_mad_skill" method="post">
 	<div>
 		<label for="skill">SKILL:</label>
@@ -5,11 +12,15 @@
 	</div>
 	<div>
 		<label for="genre">GENRE:</label>
-		<input type="text" name="skill[genre]">
+		<select name="skill[genre]" >
+			<% @skill_genres.each do |skill_genre| %>
+				<option value="<%= skill_genre %>"><%= skill_genre %></option>
+			<% end %>
+		</select>
 	</div>
 	<div>
-		<label for="level">LEVEL:</label>
-		<select name="skill[level]" id="">
+		<label for="level">SKILL LEVEL:</label>
+		<select name="skill[level]" >
 			<% (1..10).each do |i| %>
 				<option value="<%= i %>"><%= i %></option>
 			<% end %>
@@ -18,3 +29,4 @@
 	</div>
 	<input type="submit" value="acquire mad skill">
 </form>
+</div>
