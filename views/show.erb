@@ -8,7 +8,7 @@
 	<h3>Eclectic Instruments:</h3>
 	<hr>
 	<% @scott.eclectic_instruments.each do |ei| %>
-		<h4 class="description-title"><%= ei.name.capitalize %></h4>
+		<h4 class="description-title"><a href="/scott/edit_eclectic_instrument/<%= ei.id %>"><%= ei.name.capitalize %></a></h4>
 	<div class="description">
 		<p>- This instrument is in the <%= ei.genre %> genre. <%= @scott.name %> is <%= @playability_words[ei.playability_level - 1] %> at playing the <%= ei.name %>.</p>
 	</div>
@@ -20,7 +20,7 @@
 	<h3>Mad Skills:</h3>
 	<hr>
 	<% @scott.mad_skills.each do |ms| %>
-		<h4 class="description-title"><%= ms.skill.capitalize %></h4>
+		<h4 class="description-title"><a href="/scott/edit_mad_skill/<%= ms.id %>"><%= ms.skill.capitalize %></a></h4>
 	<div class="description">
 		<p>- <%= @scott.name %> posesses this <%= ms.genre %> skill. <%= @scott.name %> has <%= @skill_words[ms.level - 1] %> <%= ms.skill %>.</p>
 	</div>	

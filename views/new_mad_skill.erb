@@ -5,10 +5,10 @@
 
 <div class="four columns">
 
-<form action="/scott/new_mad_skill" method="post">
+<form action="/scott/<%= @post_path %>" method="post">
 	<div>
 		<label for="skill">SKILL:</label>
-		<input type="text" name="skill[skill]">
+		<input type="text" name="skill[skill]" value="<%= @mad_skill.present? ? @mad_skill.skill : "" %>">
 	</div>
 	<div>
 		<label for="genre">GENRE:</label>
@@ -27,6 +27,12 @@
 		</select>
 			
 	</div>
-	<input type="submit" value="acquire mad skill">
+	<input type="submit" value="<%= @mad_skill.present? ? 'edit' : 'acquire' %> mad skill">
+	
+	<% if @mad_skill.present? %>
+		<label for="delete">-OR-</label>
+		<a class="button" href="/scott/delete_mad_skill/<%= @mad_skill.id %>">delete skill</a>
+		<a href="/scott" class="button">cancel</a>
+	<% end %>
 </form>
 </div>
